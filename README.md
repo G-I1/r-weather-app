@@ -1,4 +1,8 @@
-Weather App created with react;
+Weather App created with react.
+
+weather endpoint : "http://localhost:3000/weather" or click weather in the nav bar ; 
+
+
 
 ### `npm start`
 
