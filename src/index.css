@@ -1,13 +1,186 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap");
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --bg-primary: rgb(255, 255, 255);
+  --bg-secondary: rgb(0, 0, 0);
+  --accent: rgba(0, 0, 0, 0.1);
+}
+
+html {
+  font-size: 16px;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+#root {
+  width: 100%;
+  min-height: inherit;
+}
+
+.app {
+  width: 100%;
+  background-color: var(--bg-primary);
+  height: 100%;
+  display: flex;
+  min-height: inherit;
+}
+
+.main_header {
+  background-color: var(--bg-secondary);
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  padding: 0.5rem;
+  border-right: 0.3rem var(--bg-primary) double;
+  outline: 0.2rem var(--bg-secondary) solid;
+}
+
+.nav_bar {
+  margin: 2.5rem 0 0;
+}
+
+.nav_list_elements {
+  margin: 0 0 0.5rem;
+}
+
+.nav_list_elements a {
+  display: block;
+  color: var(--bg-primary);
+  font-weight: 600;
+  transition: 0.5s;
+}
+
+.nav_list_elements:hover a {
+  transform: translateX(0.5rem);
+}
+
+.main_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  padding: 0.3rem;
+}
+
+.weather_container {
+  width: 80%;
+  max-width: 500px;
+  max-height: 500px;
+}
+
+.weather_search_form {
+  display: flex;
+  padding: 0.5rem;
+  background: var(--accent);
+  border-radius: 15px 0 15px 0;
+}
+.weather_search_form .search_bar {
+  padding: 0 1rem 0;
+  border: none;
+
+  width: 100%;
+  outline: none;
+  background: none;
+  font-size: 1.4rem;
+  font-family: "Franklin Gothic Medium", sans-serif;
+}
+
+.weather_search_form button {
+  background: none;
+  border: none;
+  padding: 0.2rem 0.1rem 0;
+}
+.weather_search_form button:hover {
+  transform: scale(1.1);
+}
+
+.weather_infos {
+  padding: 0.2rem;
+}
+
+.weather_infos .local_time {
+  font-size: 1.2rem;
+  text-align: end;
+  padding-right: 2rem;
+  font-weight: 600;
+  border-bottom: 5px black double;
+  border-radius: 0 0 15px 0;
+}
+
+.weather_infos .location {
+  font-size: 2.5rem;
+  margin: 1rem;
+}
+.weather_infos .temp {
+  font-size: 2rem;
+  margin: 1rem;
+}
+.weather_infos .description,
+.wind,
+.humidity {
+  font-size: 1.2rem;
+  margin: 0 auto 0.4em 3rem;
+}
+
+.weather_infos .description span img {
+  width: 50px;
+  margin-bottom: -15px;
+}
+
+.weather_container .weather_footer {
+  display: flex;
+  justify-content: center;
+  background-color: var(--accent);
+}
+
+.forecast {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow-y: scroll;
+  width: 100%;
+  max-height: 200px;
+  margin: 1rem;
+  padding: 1rem;
+  gap: 0.5rem;
+}
+
+.forecast_elements {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+.forecast_elements .forecast_local_time {
+  background-color: rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+}
+
+.forecast_elements .forecast_temp {
+  font-size: 1.2rem;
+}
+
+
+.forecast::-webkit-scrollbar-thumb {
+	background-color: #000000;
 }
