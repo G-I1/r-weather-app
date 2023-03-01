@@ -1,10 +1,5 @@
-visit "https://endearing-stardust-b82444.netlify.app" the see the deployed app.
 
 Weather App created with react.
-
-
-
-
 
 ### `npm start`
 
