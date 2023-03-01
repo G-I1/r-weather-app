@@ -14,7 +14,7 @@
 
 html {
   font-size: 16px;
-  color: black;
+  color: rgb(0, 0, 0);
 }
 
 a {
@@ -26,61 +26,21 @@ ul {
   list-style: none;
 }
 
-body {
+body,
+#root,
+.app {
   min-height: 100vh;
   width: 100%;
   font-family: "Roboto Condensed", sans-serif;
 }
 
-#root {
-  width: 100%;
-  min-height: inherit;
-}
 
 .app {
-  width: 100%;
   background-color: var(--bg-primary);
-  height: 100%;
   display: flex;
-  min-height: inherit;
-}
-
-.main_header {
-  background-color: var(--bg-secondary);
-  display: flex;
-  flex-direction: column;
-  width: 100px;
-  padding: 0.5rem;
-  border-right: 0.3rem var(--bg-primary) double;
-  outline: 0.2rem var(--bg-secondary) solid;
-}
-
-.nav_bar {
-  margin: 2.5rem 0 0;
-}
-
-.nav_list_elements {
-  margin: 0 0 0.5rem;
-}
-
-.nav_list_elements a {
-  display: block;
-  color: var(--bg-primary);
-  font-weight: 600;
-  transition: 0.5s;
-}
-
-.nav_list_elements:hover a {
-  transform: translateX(0.5rem);
-}
-
-.main_content {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-grow: 1;
-  padding: 0.3rem;
+
 }
 
 .weather_container {

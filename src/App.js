@@ -1,17 +1,9 @@
-import Weather from "./components/weatherComp/Weather";
-import Header from "./components/globalComp/Header";
-import { Routes, Route } from "react-router-dom";
+import Weather from "./Weather";
 
 function App() {
   return (
     <div className="app ">
-      <Header />
-      <main className="main_content">
-        <Routes>
-          <Route path="/weather" element={<Weather />}
-          />
-        </Routes>
-      </main>
+      <Weather /> 
     </div>
   );
 }

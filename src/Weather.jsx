@@ -10,15 +10,18 @@ function Weather() {
     url: "http://api.weatherapi.com/v1/forecast.json ",
     key: "e89a7c287ee24111bf0214444222412",
   };
+
+  //set initial values of weather data
   useEffect(() => {
-    setWeatherData(fetchWeather(api.url, api.key, "paris", setWeatherData));
+    fetchWeather(api.url, api.key, "paris", setWeatherData);
   }, [api.key, api.url, searchLocation]);
 
+  //search city and set weather data
   const handleSubmit = (e) => {
     e.preventDefault();
-
     fetchWeather(api.url, api.key, searchLocation, setWeatherData);
   };
+  
   return (
     <div className="weather_container">
       {!weatherData.location && <p>Loading ...</p>}
@@ -46,7 +49,9 @@ function Weather() {
             </form>
           </header>
           <main className="weather_infos">
-            <p className="local_time">{new Date(weatherData.location.localtime).toLocaleString()}</p>
+            <p className="local_time">
+              {new Date(weatherData.location.localtime).toLocaleString()}
+            </p>
             <p className="location">
               {weatherData.location.name},{weatherData.location.country}
             </p>
@@ -65,27 +70,27 @@ function Weather() {
             </p>
             <p className="wind">wind : {weatherData.current.wind_kph} km/h</p>
             <div className="forecast">
-              {weatherData.forecast.forecastday[0].hour.map((fHour,index) => (
-                  <div className="forecast_elements" key={index}>
-                    <p className="forecast_local_time">{new Date(fHour.time).getUTCHours()}h</p>
+              {weatherData.forecast.forecastday[0].hour.map((fHour, index) => (
+                <div className="forecast_elements" key={index}>
+                  <p className="forecast_local_time">
+                    {new Date(fHour.time).getUTCHours()}h
+                  </p>
 
-                    <p className="forecast_temp">{fHour.temp_c} °C</p>
-                    <p className="forecast_description">
-                      {fHour.condition.text}
-                      <span className="forecast_description_logo">
-                        <img
-                          src={fHour.condition.icon}
-                          alt="forecast_weather_desctiption_logo"
-                        />
-                      </span>
-                    </p>
-                    <p className="forecast_humidity">
-                      humidity : {fHour.humidity} %
-                    </p>
-                    <p className="forecast_wind">
-                      wind : {fHour.wind_kph} km/h
-                    </p>
-                  </div>
+                  <p className="forecast_temp">{fHour.temp_c} °C</p>
+                  <p className="forecast_description">
+                    {fHour.condition.text}
+                    <span className="forecast_description_logo">
+                      <img
+                        src={fHour.condition.icon}
+                        alt="forecast_weather_desctiption_logo"
+                      />
+                    </span>
+                  </p>
+                  <p className="forecast_humidity">
+                    humidity : {fHour.humidity} %
+                  </p>
+                  <p className="forecast_wind">wind : {fHour.wind_kph} km/h</p>
+                </div>
               ))}
             </div>
           </main>
